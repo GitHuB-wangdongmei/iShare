@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 将namespace的值设置为DAO类对应的路径 -->
+<mapper namespace="org.starrier.ishare.dao.IUserDao">
+    <!-- 目的：为DAO接口方法提供sql语句配置 -->
+    <!-- 查询用户和密码进行登录 -->
+    <select id="findByUsername" resultType="User" parameterType="String">
+
+        select * from user where username = #{username}
+
+    </select>
+
+    <select id="findUserByNameAndPwd"  parameterType="map"  resultType="User">
+        select * from user where username=#{name} and password=#{password}
+    </select>
+
+    <!--增加用户名和密码进行注册  -->
+    <insert id="registerByUsernameAndPassword">
+         insert into user (username,password)values (#{username},#{password})
+    </insert>
+
+</mapper>
