@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>I Share</title>
@@ -53,7 +54,7 @@
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="/user/home" class="logo">i Share</a>
+        <a href="home" class="logo">i Share</a>
         <div id="nav">
             <a href="homepage.aspx">首页</a>
             <a href="generic.html">标签</a>
@@ -64,8 +65,8 @@
                     <span class="sspan"></span>
                 </form>
             </a>
-            <a href="/editor">写文章</a>
-            <a>welcome,${sessionScope.user.userName}!</a>
+            <a href="">写文章</a>
+            <a href="">${msg}${sessionScope.user.userName}${msg1}</a>
         </div>
     </div>
 </header>
@@ -189,131 +190,51 @@
                 </div>
                 <!-- end #sidebar -->
                 <div id="content">
-                    <div class="post">
-                        <div>
-                            <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                <img src="/assert/images/life.png" width="80" height="80" />
+                    <c:forEach var="article" items="${articles}" begin="0" step="1">
+                        <div class="post">
+                            <div>
+                                <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
+                                    <img src="/assert/images/life.png" width="80" height="80" />
+                                </div>
+                                <div style=" height:60px;  line-height:60px; overflow:hidden;">
+                                    &nbsp;&nbsp;Hello World
+                                </div>
                             </div>
-                            <div style=" height:60px;  line-height:60px; overflow:hidden;">
-                                &nbsp;&nbsp;Hello World
+                            <div style="margin-top: 3px">
+                                <h3>
+                                    <a href="#"> ${article.title} </a>
+                                </h3>
                             </div>
-                        </div>
-                        <div style="margin-top: 3px">
-                            <h3>
-                                <a href="#"> Welcome to Reaction </a>
-                            </h3>
-                        </div>
-                        <div class="entry">
-                            <p>This is <strong>Heavenly Bliss</strong>
-                                a free, fully standards-compliant CSS template designed by
-                                <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. </p>
-                        </div>
-                        <!--  点赞 评论 收藏 Start-->
-                        <div style="text-align: right">
-                            <span class="date" style="float: left">May 15, 2013</span>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-chakandianzan"></use>
-                                </svg>  &nbsp;120
-                            </a>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-pinglun"></use>
-                                </svg>  &nbsp;110
-                            </a>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-shoucang"></use>
-                                </svg>  &nbsp;100
-                            </a>
-                        </div>
-                        <!--  点赞 评论 收藏 Start-->
-                        <hr>
-                    </div>
-                    <div class="post">
-                        <div>
-                            <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                <img src="/assert/images/life.png" width="80" height="80" />
+                            <div class="entry">
+                                <p> ${article.summary} </p>
+                                <p><a class="btn btn-primary btn-lg" href=""
+                                      role="button">阅读全文</a></p>
                             </div>
-                            <div style=" height:60px;  line-height:60px; overflow:hidden;">
-                                &nbsp;&nbsp;Hello World
+                            <!--  点赞 评论 收藏 Start-->
+                            <div style="text-align: right">
+                                <span class="date" style="float: left">May 15, 2013</span>
+                                <a href="#">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-chakandianzan"></use>
+                                    </svg>  &nbsp;120
+                                </a>
+                                <a href="#">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-pinglun"></use>
+                                    </svg>  &nbsp;110
+                                </a>
+                                <a href="#">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-shoucang"></use>
+                                    </svg>  &nbsp;100
+                                </a>
                             </div>
+                            <!--  点赞 评论 收藏 Start-->
+                            <hr>
                         </div>
-                        <div style="margin-top: 3px">
-                            <h3>
-                                <a href="#"> Welcome to Reaction </a>
-                            </h3>
-                        </div>
-                        <div class="entry">
-                            <p>This is <strong>Heavenly Bliss</strong>
-                                a free, fully standards-compliant CSS template designed by
-                                <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. </p>
-                        </div>
-                        <!--  点赞 评论 收藏 Start-->
-                        <div style="text-align: right">
-                            <span class="date" style="float: left">May 15, 2013</span>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-chakandianzan"></use>
-                                </svg>  &nbsp;120
-                            </a>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-pinglun"></use>
-                                </svg>  &nbsp;110
-                            </a>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-shoucang"></use>
-                                </svg>  &nbsp;100
-                            </a>
-                        </div>
-                        <!--  点赞 评论 收藏 Start-->
-                        <hr>
-                    </div>
-                    <div class="post">
-                        <div>
-                            <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                <a href="/user/register"><img src="../webapp/assert/images/life.png" width="80" height="80" /></a>
-                            </div>
-                            <div style=" height:60px;  line-height:60px; overflow:hidden;">
-                                &nbsp;&nbsp;Hello World
-                            </div>
-                        </div>
-                        <div style="margin-top: 3px">
-                            <h3>
-                                <a href="#"> Welcome to Reaction </a>
-                            </h3>
-                        </div>
-                        <div class="entry">
-                            <p>This is <strong>Heavenly Bliss</strong>
-                                a free, fully standards-compliant CSS template designed by
-                                <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>. </p>
-                        </div>
-                        <!--  点赞 评论 收藏 Start-->
-                        <div style="text-align: right">
-                            <span class="date" style="float: left">May 15, 2013</span>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-chakandianzan"></use>
-                                </svg>  &nbsp;120
-                            </a>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-pinglun"></use>
-                                </svg>  &nbsp;110
-                            </a>
-                            <a href="#">
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-shoucang"></use>
-                                </svg>  &nbsp;100
-                            </a>
-                        </div>
-                        <!--  点赞 评论 收藏 Start-->
-                        <hr>
-                    </div>
-                    <div style="clear: both;">&nbsp;</div>
+                    </c:forEach>
 
+                    <div style="clear: both;">&nbsp;</div>
 
                 </div>
                 <!-- end #content -->

@@ -28,7 +28,7 @@
                 <span>登录</span>
                 <a href="register_.jsp">去注册</a>
             </div>
-            <form autocomplete="off" action="/user/checkLogin" method="post">
+            <form autocomplete="off" action="checkLogin" method="post">
                 <%
                     String msg = (String) request.getAttribute("msg");
                     if (msg != null) {

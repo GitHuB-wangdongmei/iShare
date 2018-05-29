@@ -54,7 +54,7 @@
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="home.jsp" class="logo">i Share</a>
+        <a href="/index" class="logo">i Share</a>
         <div id="nav">
             <a href="homepage.aspx">首页</a>
             <a href="generic.html">标签</a>
@@ -66,8 +66,8 @@
                 </form>
             </a>
             <a href="/editor">写文章</a>
-            <a href="/user/login_">登录</a>
-            <a href="user/register_">注册</a>
+            <a href="login_">登录</a>
+            <a href="register_">注册</a>
         </div>
     </div>
 </header>

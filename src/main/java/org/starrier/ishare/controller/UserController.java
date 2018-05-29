@@ -1,29 +1,33 @@
 package org.starrier.ishare.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.starrier.ishare.entity.Article;
 import org.starrier.ishare.entity.User;
+import org.starrier.ishare.service.ArticleService;
 import org.starrier.ishare.service.UserService;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by lenovo on 2018/5/12.
  */
 @Controller
-@RequestMapping("/user")
 @SessionAttributes("user")
 public class UserController {
 
-    @Autowired
+    @Resource
     private UserService userService;
+    @Resource
+    private ArticleService articleService;
 
     //正常访问login页面
     @RequestMapping("/login_")
@@ -32,9 +36,12 @@ public class UserController {
     }
 
     @RequestMapping("/home")
-    public String home(){
+    public String home(Model model){
+        List<Article> articles = articleService.showArticle();
+        model.addAttribute("articles",articles);
         return "user/home";
     }
+
     //表单提交过来的路径
     @RequestMapping("/checkLogin")
     public String checkLogin(Model model,HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
@@ -51,8 +58,11 @@ public class UserController {
          User user=userService.checkLogin(userName,password);
 
         if (user!=null){
+            model.addAttribute("msg","welcome,");
             model.addAttribute("user",user);
-            req.setAttribute("msg","登录成功！");
+            model.addAttribute("msg1","!");
+            List<Article> articles = articleService.showArticle();
+            model.addAttribute("articles",articles);
             return "user/home";
         }else {
             req.setAttribute("msg","密码错误或用户名不存在！");
@@ -119,5 +129,14 @@ public class UserController {
         userService.Register(user);
         return "redirect:login_";
     }
+
+
+    @RequestMapping("/index")
+    public String index(Model model){
+        List<Article> articles = articleService.showArticle();
+        model.addAttribute("articles",articles);
+        return "user/index";
+    }
+
 
 }
