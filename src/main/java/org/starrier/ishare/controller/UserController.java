@@ -1,8 +1,10 @@
 package org.starrier.ishare.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.starrier.ishare.entity.Article;
 import org.starrier.ishare.entity.User;
@@ -24,26 +26,21 @@ import java.util.List;
 @SessionAttributes("user")
 public class UserController {
 
-    @Resource
+    @Autowired
     private UserService userService;
+
     @Resource
     private ArticleService articleService;
 
     //正常访问login页面
-    @RequestMapping("/login_")
+    @RequestMapping("/login")
     public String login(){
-        return "user/login_";
+        return "user/login";
     }
 
-    @RequestMapping("/home")
-    public String home(Model model){
-        List<Article> articles = articleService.showArticle();
-        model.addAttribute("articles",articles);
-        return "user/home";
-    }
 
     //表单提交过来的路径
-    @RequestMapping("/checkLogin")
+    @RequestMapping(value = "/checkLogin",method = RequestMethod.POST)
     public String checkLogin(Model model,HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
         String userName=req.getParameter("uname");
         String password=req.getParameter("upwd");
@@ -52,7 +49,7 @@ public class UserController {
         if("".equals(userName)||"".equals(password)){
             req.setAttribute("msg","用户名和密码均不能为空！");
             req.getRequestDispatcher("login").forward(req,resp);
-            return "user/login_";
+            return "user/login";
         }
 
          User user=userService.checkLogin(userName,password);
@@ -62,20 +59,24 @@ public class UserController {
             model.addAttribute("user",user);
             model.addAttribute("msg1","!");
             List<Article> articles = articleService.showArticle();
-            model.addAttribute("articles",articles);
-            return "user/home";
+            model.addAttribute("articles", articles);
+            return "article/home";
         }else {
-            req.setAttribute("msg","密码错误或用户名不存在！");
+            model.addAttribute("msg","密码错误或用户名不存在！");
             return "user/result";
         }
 
     }
 
     //测试超链接跳转到另一个页面是否可以取到session值
-    @RequestMapping("/anotherpage")
+    @RequestMapping("/write")
     public String hrefpage(){
+        return "article/write";
+    }
 
-        return "anotherpage";
+    @RequestMapping("/label")
+    public String labelPage(){
+        return "label";
     }
 
     //注销方法
@@ -83,12 +84,12 @@ public class UserController {
     public String outLogin(HttpSession session){
         //通过session.invalidata()方法来注销当前的session
         session.invalidate();
-        return "user/login";
+        return "redirect:index";
     }
 
-    @RequestMapping("/register_")
+    @RequestMapping("/register")
     public String register(){
-        return "user/register_";
+        return "user/register";
     }
 
     @RequestMapping("/doRegister")
@@ -100,13 +101,13 @@ public class UserController {
         //如果输入的参数为空，操作终止
         if("".equals(userName)||"".equals(password)||"".equals(rePassword)){
             req.setAttribute("msg","用户名和密码均不能为空！");
-            return "user/register_";
+            return "user/register";
         }
 
         //输入密码与重复密码不一致的时候
         if(!password.equals(rePassword)){
             req.setAttribute("msg","设置的密码与重复密码必须一致！");
-            return "user/register_";
+            return "user/register";
         }
 
         //用户名不符合tel或email的格式要求
@@ -114,13 +115,13 @@ public class UserController {
         String ph = "^[1][34578]\\d{9}$";
         if (!userName.matches(em)&&!userName.matches(ph)){
             req.setAttribute("msg","该用户名格式错误！");
-            return "user/register_";
+            return "user/register";
         }
 
         //如果用户名已经注册
         if (userName.equals(userService.isExist(userName))){
             req.setAttribute("msg","该用户名已经注册！");
-            return "user/register_";
+            return "user/register";
         }
 
         User user=new User();
@@ -128,14 +129,6 @@ public class UserController {
         user.setPassword(password);
         userService.Register(user);
         return "redirect:login_";
-    }
-
-
-    @RequestMapping("/index")
-    public String index(Model model){
-        List<Article> articles = articleService.showArticle();
-        model.addAttribute("articles",articles);
-        return "user/index";
     }
 
 

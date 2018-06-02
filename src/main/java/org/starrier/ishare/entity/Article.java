@@ -1,43 +1,17 @@
 package org.starrier.ishare.entity;
 
-import java.util.Date;
-
 /**
- * Created by lenovo on 2018/5/23.
+ * Created by lenovo on 2018/6/1.
  */
 public class Article {
     private int id;
     private String title;
     private String content;
-    private String createTime;
+    private String date;
     private String summary;
     private String category;
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
     private int categoryId;
+    private String author;
 
     public int getId() {
         return id;
@@ -63,11 +37,43 @@ public class Article {
         this.content = content;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getDate() {
+        return date;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

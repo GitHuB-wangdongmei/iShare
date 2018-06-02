@@ -65,7 +65,7 @@
                     <span class="sspan"/>
                 </form>
             </a>
-            <a href="/editor">写文章</a>
+            <a href="login_">写文章</a>
             <a href="login_">登录</a>
             <a href="register_">注册</a>
         </div>
@@ -198,7 +198,7 @@
                                     <img src="../../assert/images/life.png" width="80" height="80" />
                                 </div>
                                 <div style=" height:60px;  line-height:60px; overflow:hidden;">
-                                    &nbsp;&nbsp;Hello World
+                                    &nbsp;&nbsp;${article.author}
                                 </div>
                             </div>
                             <div style="margin-top: 3px">
@@ -213,7 +213,7 @@
                             </div>
                             <!--  点赞 评论 收藏 Start-->
                             <div style="text-align: right">
-                                <span class="date" style="float: left"> ${article.createTime}</span>
+                                <span class="date" style="float: left"> ${article.date}</span>
                                 <a href="#">
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-chakandianzan"></use>

@@ -7,7 +7,11 @@
     <!-- 目的：为DAO接口方法提供sql语句配置 -->
 
     <select id="showArticle" resultType="Article">
-          select a.*,c.name as category from article a,category c WHERE a.categoryId=c.id limit 10
+           select a.*,c.name as category from article a,category c WHERE a.categoryId=c.id ORDER BY date DESC limit 10
     </select>
+
+    <insert id="writeBlog" parameterType="Article">
+        INSERT INTO article (title,content,date,categoryId,summary,author) VALUES (#{title},#{content},#{date},#{categoryId},#{summary},#{author})
+    </insert>
 
 </mapper>

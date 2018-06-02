@@ -65,9 +65,9 @@
                     <span class="sspan"/>
                 </form>
             </a>
-            <a href="login_">写文章</a>
-            <a href="login_">登录</a>
-            <a href="register_">注册</a>
+            <a href="/login">写文章</a>
+            <a href="/login.jsp">登录</a>
+            <a href="register">注册</a>
         </div>
     </div>
 </header>
@@ -191,49 +191,88 @@
                 </div>
                 <!-- end #sidebar -->
                 <div id="content">
-                    <c:forEach var="article" items="${articles}" begin="0" step="1">
-                        <div class="post">
-                            <div>
-                                <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                    <img src="../../assert/images/life.png" width="80" height="80" />
-                                </div>
-                                <div style=" height:60px;  line-height:60px; overflow:hidden;">
-                                    &nbsp;&nbsp;${article.author}
-                                </div>
+                    <div class="post">
+                        <div>
+                            <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
+                                <img src="../../assert/images/life.png" width="80" height="80" />
                             </div>
-                            <div style="margin-top: 3px">
-                                <h3>
-                                    <a href="#"> ${article.title} </a>
-                                </h3>
+                            <div style=" height:60px;  line-height:60px; overflow:hidden;">
+                                &nbsp;&nbsp;Hello World
                             </div>
-                            <div class="entry">
-                                <p> ${article.summary} </p>
-                                <p><a class="btn btn-primary btn-lg" href=""
-                                      role="button">阅读全文</a></p>
-                            </div>
-                            <!--  点赞 评论 收藏 Start-->
-                            <div style="text-align: right">
-                                <span class="date" style="float: left"> ${article.date}</span>
-                                <a href="#">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-chakandianzan"></use>
-                                    </svg>  &nbsp;120
-                                </a>
-                                <a href="#">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-pinglun"></use>
-                                    </svg>  &nbsp;110
-                                </a>
-                                <a href="#">
-                                    <svg class="icon" aria-hidden="true">
-                                        <use xlink:href="#icon-shoucang"></use>
-                                    </svg>  &nbsp;100
-                                </a>
-                            </div>
-                            <!--  点赞 评论 收藏 Start-->
-                            <hr>
                         </div>
-                    </c:forEach>
+                        <div style="margin-top: 3px">
+                            <h3>
+                                <a href="#"> 丹青引赠曹霸将军 </a>
+                            </h3>
+                        </div>
+                        <div class="entry">
+                            <p> 斯须九重真龙出，一洗万古凡马空 </p>
+                            <p><a class="btn btn-primary btn-lg" href=""
+                                  role="button">阅读全文</a></p>
+                        </div>
+                        <!--  点赞 评论 收藏 Start-->
+                        <div style="text-align: right">
+                            <span class="date" style="float: left"> </span>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-chakandianzan"></use>
+                                </svg>  &nbsp;120
+                            </a>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-pinglun"></use>
+                                </svg>  &nbsp;110
+                            </a>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-shoucang"></use>
+                                </svg>  &nbsp;100
+                            </a>
+                        </div>
+                        <!--  点赞 评论 收藏 Start-->
+                        <hr>
+                    </div>
+                    <div class="post">
+                        <div>
+                            <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
+                                <img src="../../assert/images/life.png" width="80" height="80" />
+                            </div>
+                            <div style=" height:60px;  line-height:60px; overflow:hidden;">
+                                &nbsp;&nbsp;Hello World
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px">
+                            <h3>
+                                <a href="#"> 长恨歌 </a>
+                            </h3>
+                        </div>
+                        <div class="entry">
+                            <p> 在天愿作比翼鸟，在地愿为连理枝。天长地久有时尽，此恨绵绵无绝期。 </p>
+                            <p><a class="btn btn-primary btn-lg" href=""
+                                  role="button">阅读全文</a></p>
+                        </div>
+                        <!--  点赞 评论 收藏 Start-->
+                        <div style="text-align: right">
+                            <span class="date" style="float: left"> ${article.date}</span>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-chakandianzan"></use>
+                                </svg>  &nbsp;120
+                            </a>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-pinglun"></use>
+                                </svg>  &nbsp;110
+                            </a>
+                            <a href="#">
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-shoucang"></use>
+                                </svg>  &nbsp;100
+                            </a>
+                        </div>
+                        <!--  点赞 评论 收藏 Start-->
+                        <hr>
+                    </div>
 
 
                     <div style="clear: both;">&nbsp;</div>

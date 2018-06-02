@@ -1,5 +1,6 @@
 package org.starrier.ishare.dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.starrier.ishare.entity.Article;
 
 import java.util.List;
@@ -13,4 +14,7 @@ public interface IArticleDao {
      * @return
      */
     List<Article> showArticle();
+
+    void writeBlog(Article article);
+    int getCategoryIdByName(String name);
 }

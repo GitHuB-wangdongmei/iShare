@@ -1,114 +1,88 @@
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
-  Date: 2018/3/24
-  Time: 15:24
+  Date: 2018/5/28
+  Time: 19:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>login</title>
-    <link rel="stylesheet" type="text/css" href="/assert/css/style1.css"/>
-    <!-- IconFont -->
-    <script src="/assert/js/iconfont.js"></script>
-    <style type="text/css">
-
-        .a {
-            background-color: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            height: 200px;
-            width: 500px;
-            padding: 20px;
-
-            -webkit-transition-duration: 0.25s;
-            transition-duration: 0.25s;
-        }
-
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-        .qq{
-            float: left;
-            width:300px;
-        }
-        .weibo{
-            float: left;
-            width:300px;
-        }
-        .wechat{
-            float: left;
-            width:300px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assert/css/user/base.css"/>
+    <link rel="stylesheet" href="/assert/css/user/login.css"/>
+    <title>iShare-用户登录</title>
 </head>
-<body style="background-image: url('/assert/images/1.png'); height: 749px;">
-<header>
-    <h1 style="color:#f1951d; font-family: 'Times New Roman';">&nbsp;&nbsp; <span class="auto-style1"><strong
-            style="font-size: 40px">iShare</strong></span></h1>
-</header>
-<br/>
-<div class="a" style="height: 488px; width: 390px; margin-left: 700px; margin-top: 20px;">
-    <br/><br/>
-    <div style="text-align: center">
-        登录
+<body>
+<div id="main">
+    <div id="header">
     </div>
-    <br/>
-    <form action="/user/checkLogin" method="post">
-        <div style="height: 69px" aria-sort="none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;手机号 或
-            Email<br/>
-            <input id="Text1" type="text" name="userName"/></div>
-        <div style="height: 72px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 密码<br/>
-            <input id="Password1" type="password" name="password"/></div>
-
-        <%
-            String msg = (String) request.getAttribute("msg");
-            if (msg != null) {
-        %>
-        <div>
-            <span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=msg%></span>
-        </div>
-        <%
-            }
-        %>
-
-        <br/>
-        <div style="height: 58px">
-            <input id="Button1" type="submit" value="登录"/></div>
-    </form>
-    <br/>
-    <div style="text-align: center">第三方账号登录</div>
-    <br/>
-    <div >
-        <div href="#"class="qq">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-qq"></use>
-            </svg>
-        </div>
-        <div href="#" class="weibo">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-weibo"></use>
-            </svg>
-        </div>
-        <div href="#" class="wechat">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-wechat"></use>
-            </svg>
+    <div class="container">
+        <div class="bgPic"><img src="/assert/images/register/b3_1.jpg" alt=""/></div>
+        <div class="register">
+            <div class="title">
+                <span>登录</span>
+                <a href="register.jsp">去注册</a>
+            </div>
+            <form autocomplete="off" action="checkLogin" method="post">
+                <%
+                    String msg = (String) request.getAttribute("msg");
+                    if (msg != null) {
+                %>
+                <div>
+                    <span style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=msg%></span>
+                </div>
+                <%
+                    }
+                %>
+                <div class="default">
+                    <p>请输入用户名或手机号码</p>
+                    <input id="uname" name="uname" data-form="uname" type="text" placeholder="用户名/手机" />
+                </div>
+                <div class="default">
+                    <p>请输入账号密码</p>
+                    <input id="upwd" name="upwd" data-form="upwd" type="password" placeholder="密码"/>
+                </div>
+                <div class="submit">
+                        <span class="notice">
+                            <a href="#">忘记密码</a>
+                        </span>
+                    <button class="s_hover" data-form="submit">登录</button>
+                </div>
+            </form>
+            <div class="other_login">
+                <div class="log">
+                    <span>社交账号登录</span>
+                </div>
+                <div class="icon">
+                    <ul>
+                        <li data-log="icon" class="i_hover">
+                            <img data-icon="wx" src="/assert/images/register/wx.png" alt=""/>
+                            <span class="prompt" >微信登录</span>
+                        </li>
+                        <li data-log="icon" class="i_hover">
+                            <img data-icon="qq" src="/assert/images/register/qq.png" alt=""/>
+                            <span class="prompt" >QQ登录</span>
+                        </li>
+                        <li data-log="icon" class="i_hover">
+                            <img data-icon="wb" src="/assert/images/register/wb.png" alt=""/>
+                            <span class="prompt" >微博登录</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-
+    <div id="footer">
+    </div>
 </div>
-<br/>
-<br/>
-<br/>
-<footer style="text-align: center">Copyright © 2018 iShare 版权所有</footer>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/header.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
+

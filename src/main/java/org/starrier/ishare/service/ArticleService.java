@@ -5,8 +5,9 @@ import org.starrier.ishare.entity.Article;
 import java.util.List;
 
 /**
- * Created by lenovo on 2018/5/23.
+ * Created by lenovo on 2018/6/1.
  */
 public interface ArticleService {
+    void writeBlog(Article article);
     List<Article> showArticle();
 }

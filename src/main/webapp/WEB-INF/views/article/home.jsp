@@ -12,19 +12,67 @@
     <title>I Share</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../../assert/css/mystyle.css" />
 
-    <script src="../../assert/js/jquery.min.js"></script>
-    <script src="../../assert/js/skel.min.js"></script>
-    <script src="../../assert/js/util.js"></script>
-    <script src="../../assert/js/main.js"></script>
+
+
+    <link rel="stylesheet" href="/assert/css/index/mystyle.css" />
+
+    <script src="/assert/js/jquery.min.js"></script>
+    <script src="/assert/js/skel.min.js"></script>
+    <script src="/assert/js/util.js"></script>
+    <script src="/assert/js/main.js"></script>
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="../../assert/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assert/css/bootstrap/fonts/font-awesome.min.css">
     <!-- Banner 轮播-->
     <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-    <script src="../../assert/js/jquery.scrollBanner.js" type="text/javascript"></script>
+    <script src="/assert/js/jquery.scrollBanner.js" type="text/javascript"></script>
     <!-- IconFont -->
-    <script src="../../assert/js/iconfont.js"></script>
+    <script src="/assert/js/iconfont.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var onOff=true;
+            var attention=$(".attention1");
+            attention.click(function(){
+                if (attention.onOff) {
+                    attention.text("关注");
+                    attention.onOff = false;
+                } else {
+                    attention.text("已关注");
+                    attention.onOff = true;
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var onOff=true;
+            var attention=$(".attention2");
+            attention.click(function(){
+                if (attention.onOff) {
+                    attention.text("关注");
+                    attention.onOff = false;
+                } else {
+                    attention.text("已关注");
+                    attention.onOff = true;
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var onOff=true;
+            var attention=$(".attention3");
+            attention.click(function(){
+                if (attention.onOff) {
+                    attention.text("关注");
+                    attention.onOff = false;
+                } else {
+                    attention.text("已关注");
+                    attention.onOff = true;
+                }
+            });
+        });
+    </script>
     <style type="text/css">
         .icon {
             /* 通过设置 font-size 来改变图标大小 */
@@ -48,26 +96,51 @@
             background: -webkit-linear-gradient(top,  #70c9e3 0%,#39a0be 100%);
         }
 
+        .toggle {
+            color: #666;
+            display: block;
+            float: left;
+            height: 72px;
+            line-height: 72px;
+            text-align: center;
+            width: 72px;
+        }
+        .attention1 {
+            border-radius: 50px;
+            background-color: #00aaaa63;
+            outline: none;
+        }
+        .attention2 {
+            border-radius: 50px;
+            background-color: #00aaaa63;
+            outline: none;
+        }
+        .attention3 {
+            border-radius: 50px;
+            background-color: #00aaaa63;
+            outline: none;
+        }
+
     </style>
 </head>
-<body style="background: rgba(0,0,0,.03) url(../../assert/images/bg01.png) repeat;">
+<body style="background: rgba(0,0,0,.03) url(/assert/images/bg01.png) repeat;">
 <!-- Header -->
 <header id="header">
     <div class="inner">
-        <a href="/index" class="logo">i Share</a>
+        <a href="home" class="logo">i Share</a>
         <div id="nav">
-            <a href="homepage.aspx">首页</a>
-            <a href="generic.html">标签</a>
+            <a href="home">首页</a>
+            <a href="label">标签</a>
             <a href="elements.html">专栏</a>
             <a>
                 <form class="search">
                     <input class="sinput" placeholder="搜索标签" />
-                    <span class="sspan"/>
+                    <span class="sspan"></span>
                 </form>
             </a>
-            <a href="login_">写文章</a>
-            <a href="login_">登录</a>
-            <a href="register_">注册</a>
+            <a href="/write">写文章</a>
+            <a href="#">${msg}${sessionScope.user.userName}${msg1}</a>
+            <a href="outLogin">退出</a>
         </div>
     </div>
 </header>
@@ -75,28 +148,16 @@
 
 <!-- Banner -->
 <section id="banner">
-    <!-- <div class="inner">
-         <h1>
-             Introspect: <span>
-                 A free + fully responsive<br />
-                 site template by TEMPLATED
-             </span>
-         </h1>
-         <ul class="actions">
-             <li><a href="#" class="button alt">Get Started</a></li>
-         </ul>
-     </div>-->
-    <!-- lunbo start -->
     <div id="banners">
 
     </div>
     <script type="text/javascript">
         $("#banners").scrollBanner({
             images : [
-                {src:"assert/images/it.png",href:"home.jsp"},
-                {src:"assert/images/life.png",href:"#"},
-                {src:"assert/images/food.png",href:"#"},
-                {src:"assert/images/read.png",href:"#"}
+                {src:"/assert/images/it.png",href:"index.html"},
+                {src:"/assert/images/life.png",href:"#"},
+                {src:"/assert/images/food.png",href:"#"},
+                {src:"/assert/images/read.png",href:"#"}
             ],
             scrollTime:3000,
             bannerHeight:"500px",
@@ -109,11 +170,11 @@
 </section>
 
 <!-- content -->
-<div id="wrapper">
-    <div id="page">
-        <div id="page-bgtop">
-            <div id="page-bgbtm">
-                <div id="sidebar">
+<section id="content">
+    <div class="page">
+        <div class="page1">
+            <div class="page2">
+                <div id="left">
                     <ul>
                         <li>
                             <ul>
@@ -121,11 +182,11 @@
                                     <a href="#">
                                         <svg class="icon" aria-hidden="true">
                                             <use xlink:href="#icon-huoyan"></use>
-                                        </svg>   &nbsp; 今日焦点
+                                        </svg>   &nbsp; 最新内容
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="/home">
                                         <svg class="icon" aria-hidden="true">
                                             <use xlink:href="#icon-ziyuan"></use>
                                         </svg>  &nbsp; 为你推荐
@@ -135,7 +196,7 @@
                                     <a href="#">
                                         <svg class="icon" aria-hidden="true">
                                             <use xlink:href="#icon-baozhi"></use>
-                                        </svg>   &nbsp; 最新内容
+                                        </svg>   &nbsp; 今日焦点
                                     </a>
                                 </li>
                             </ul>
@@ -190,12 +251,12 @@
                     </ul>
                 </div>
                 <!-- end #sidebar -->
-                <div id="content">
+                <div id="middle">
                     <c:forEach var="article" items="${articles}" begin="0" step="1">
                         <div class="post">
                             <div>
                                 <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                    <img src="../../assert/images/life.png" width="80" height="80" />
+                                    <img src="/assert/images/life.png" width="80" height="80" />
                                 </div>
                                 <div style=" height:60px;  line-height:60px; overflow:hidden;">
                                     &nbsp;&nbsp;${article.author}
@@ -213,7 +274,7 @@
                             </div>
                             <!--  点赞 评论 收藏 Start-->
                             <div style="text-align: right">
-                                <span class="date" style="float: left"> ${article.date}</span>
+                                <span class="date" style="float: left">${article.date}</span>
                                 <a href="#">
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-chakandianzan"></use>
@@ -235,31 +296,29 @@
                         </div>
                     </c:forEach>
 
-
                     <div style="clear: both;">&nbsp;</div>
 
                 </div>
                 <!-- end #content -->
 
-                <div id="sidebar2">
+                <div id="right">
                     <ul>
                         <li>
-                            <div style="text-align: right">
+                            <div style="text-align: right; border-buttom:1px solid #e5474b;">
                                 <div style="float: left;"><h4>作者推荐</h4></div>
                                 <div><a href="#">更多信息</a></div>
                             </div>
-                            <hr>
                             <ul>
                                 <li>
                                     <div>
                                         <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                            <img src="../../assert/images/life.png" width="80" height="80" />
+                                            <img src="assert/images/life.png" width="80" height="80" />
                                         </div>
                                         <div style="display:inline;height:60px;  line-height:60px; overflow:hidden;">
                                             &nbsp;&nbsp;Hello World
                                         </div>
                                         <div style="display: inline;float: right;text-align: center;margin-top: 7px">
-                                            <button style="border-radius: 50px;background-color: #00aaaa63">关注</button>
+                                            <button  class="attention1" value="关注" style="background-color: #00aaaa63">关注</button>
                                         </div>
 
                                     </div>
@@ -267,13 +326,13 @@
                                 <li>
                                     <div>
                                         <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                            <img src="../../assert/images/life.png" width="80" height="80" />
+                                            <img src="assert/images/life.png" width="80" height="80" />
                                         </div>
                                         <div style="display:inline;height:60px;  line-height:60px; overflow:hidden;">
                                             &nbsp;&nbsp;Hello World
                                         </div>
                                         <div style="display: inline;float: right;text-align: center;margin-top: 7px">
-                                            <button style="border-radius: 50px;background-color: #00aaaa63">关注</button>
+                                            <button class="attention2" value="关注" style="background-color: #00aaaa63">关注</button>
                                         </div>
 
                                     </div>
@@ -281,13 +340,13 @@
                                 <li>
                                     <div>
                                         <div style="width: 60px; height: 60px; float:left; border-radius: 50%; border: 3px solid #eee; overflow: hidden;">
-                                            <img src="../../assert/images/life.png" width="80" height="80" />
+                                            <img src="assert/images/life.png" width="80" height="80" />
                                         </div>
                                         <div style="display:inline;height:60px;  line-height:60px; overflow:hidden;">
                                             &nbsp;&nbsp;Hello World
                                         </div>
                                         <div style="display: inline;float: right;text-align: center;margin-top: 7px">
-                                            <button style="border-radius: 50px;background-color: #00aaaa63">关注</button>
+                                            <button class="attention3" value="关注" style="background-color: #00aaaa63">关注</button>
                                         </div>
 
                                     </div>
@@ -313,7 +372,7 @@
         </div>
     </div>
     <!-- end #page -->
-</div>
+</section>
 
 <!-- Footer -->
 <div id="footer">
