@@ -13,9 +13,11 @@ create table article
 		primary key,
 	title varchar(225) null,
 	content text null,
-	createtime varchar(50) null,
+	date varchar(50) null,
 	categoryId int(4) null,
 	summary text null
+	author VARCHAR (50)
+
 )
 ;
 
@@ -26,4 +28,5 @@ create table category
 	name varchar(225) null,
 	display_name varchar(225) null
 )
-;
+# Article Table new #
+
